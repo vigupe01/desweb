@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<?php
-			$frase="Paco es un campeon";
+			$frase="Victor es un campeon";
 
 			echo $frase;
 		?>
