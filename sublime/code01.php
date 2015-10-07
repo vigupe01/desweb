@@ -25,6 +25,8 @@
 	</head>
 	<body>
 		<?php
+		
+		//codigo
 			//Si introducimos el valor 0 esperamos que salga el valor 0
 			echo "<div class=\"OK\">";
 			echo "Valor de entrada=0 valor esperado=0"."</br>";
