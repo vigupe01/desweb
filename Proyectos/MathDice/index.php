@@ -8,8 +8,9 @@
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
               <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
               <link rel="stylesheet" href="css/dados.css" type="text/css" />
+              
     </head>
-    <body>
+    <body background="imagenes/fondo.jpg">
         <?php include "configuracion.php"; ?> 
         
     </body>
