@@ -3,10 +3,11 @@
     include "lib/Jugador.php";
     
     session_start();
+    var_dump($_SESSION['jugador']);
     
     //si jugador esta vacio devolveremos a intro para que rellene el formulario
     if(!isset($_SESSION["jugador"])){
-      header("Location: Intro.php");
+      header("Location: intro.php");
     }else{
       
       //creamos el ojeto juego con sus respectivos dados
@@ -44,8 +45,8 @@
   </head>
   <body background="/MathDiceFinal/imagenes/naranja.jpg">
     <?php
-      include "ArrayMenu.php";
-      include "Cabecera.php";
+      include "arrayMenu.php";
+      include "cabecera.php";
     ?>
      <div class="container-fluid" style="text-align: ritgh;">
             <div class="row">
@@ -75,7 +76,7 @@
       </div>
       
       <div class="row">
-        <form method="post" action="Junior.php">
+        <form method="post" action="junior.php">
             <div class="col-sm-2"><br> 
               <img class="signo" src="imagenes/suma.png"  style="margin-left:200px" onClick="meterSigno('+')"> 
             </div>

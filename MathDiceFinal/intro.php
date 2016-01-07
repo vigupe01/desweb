@@ -1,13 +1,26 @@
 <?php
-    include 'ArrayMenu.php';
+    include 'arrayMenu.php';
     include 'lib/Jugador.php';
+    require_once('conexionBD.php');
     
     session_start();
-    $_SESSION['jugador'] = new Jugador();
-    $_SESSION['jugador']->setNombre($_POST["nombre"]);
-    $_SESSION['jugador']->setApellido($_POST["apellido"]);
-    $_SESSION['jugador']->setEdad($_POST["edad"]);
     
+    $baseDatos = new BaseDatos();
+    
+    
+    $jugador1=$_SESSION['jugador'] = new Jugador();
+    var_dump($_SESSION['jugador']);
+    if($jugadorBd=$baseDatos->comprobarUser($_POST['nombre'])){
+                   $jugador1->setNombre($jugadorBd['nombre']);
+                   $jugador1->setApellido($jugadorBd['apellido']);
+                   $jugador1->setEdad($jugadorBd['edad']);
+    }else{
+      $baseDatos->insertarUser($_POST['nombre'],$_POST['apellido'],$_POST['edad']);
+      
+                    $jugador1->setNombre($_POST['nombre']);
+                    $jugador1->setApellido($_POST['apellido']);
+                    $jugador1->setEdad($_POST['edad']);
+    }
     if($_POST["juego"] == "junior"){
         $_SESSION['jugador']->setTipo("junior");
     }else{
@@ -16,7 +29,7 @@
   
   
     if($_POST["submit"]=="Jugar"){
-        header('Location: Junior.php');
+        header('Location: junior.php');
     }
 ?>
 <!DOCTYPE html>
@@ -33,7 +46,7 @@
   </head>
   
   <body background="/MathDiceFinal/imagenes/naranja.jpg">
-    <?php include 'Cabecera.php';?>
+    <?php include 'cabecera.php';?>
     <CENTER><img src="/MathDiceFinal/imagenes/mathdice.png"></img></CENTER>
   
   
@@ -42,7 +55,7 @@
     <div class="container">
       <div class="row">
         <center><div class="form-group" style="width:400px"> </center>
-          <center><form method="post" action="Intro.php" style="width:400px">
+          <center><form method="post" action="intro.php" style="width:400px">
             <label for="nombre">Nombre:</label>
             <input type="text" class="form-control" name="nombre" value=""/> <br>
             <label for="apellido">Apellido:</label> <br>
@@ -60,7 +73,7 @@
             <input type="submit" class="button" name="submit" style="width:300px" value="Jugar"/>
             </div>
           </form></center>
-          <br><CENTER><p href="#" class="button" style="width:300px" onclick = "location='/MathDiceFinal/Instrucciones.php'"/>Instrucciones</p></CENTER>
+          <br><CENTER><p href="#" class="button" style="width:300px" onclick = "location='/MathDiceFinal/instrucciones.php'"/>Instrucciones</p></CENTER>
         </div>
       </div>
     </div>

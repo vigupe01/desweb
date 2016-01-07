@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'ArrayMenu.php';
+<?php include 'arrayMenu.php';
       ?>
 <html>
     <head>
@@ -13,7 +13,7 @@
          <LINK REL=StyleSheet HREF="/MathDiceFinal/css/estilosinstru.css" TYPE="text/css">
     </head>
     <body background="/MathDiceFinal/imagenes/naranja.jpg">
-        <?php include 'Cabecera.php';?>
+        <?php include 'cabecera.php';?>
         
         <CENTER><img src="/MathDiceFinal/imagenes/instrucciones.png"></img></CENTER>
         <CENTER><p href="#" class="button" style="width:600px"/>Math Dice es un juego de tipo educativo, con varios niveles de dificultad en el que
